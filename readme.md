@@ -16,9 +16,9 @@ Do with it what you will, but be nice. Okay?
 
 ## Changelog
 
-Conceived on the ** Sixteenth ** day of  ** October ** of the year ** 2021 **.
+Conceived on the **Sixteenth** day of  **October** of the year **2021**.
 
-Last updated on ** 18 October, 2021 **
+Last updated on **18 October, 2021**
 
 Debug help, Support, and Maintenance offered by [Naga Samineni](https://samineni.me), Passbird Research
 
@@ -75,7 +75,7 @@ That's all folks! Restart the application and you now have built the new [https:
 ## Philosophy
 After working in Corporate (Facebook, Twitter, Microsoft) for better part of a decade, I grew accustomed to certain luxuries of developer experience. Now that I'm out, I realized it's kinda annoying to not have that multi million dollar frameworks you can build off of.
 
-In the perfect world, you'd just write the core business logic like a lambda function and hit publish and a multi million dollar team * someone * (\*cough\* multi million dollar team**S** \*cough\*) automagically takes care of CI/CD, Deployment, Hosting, Scaling, and all that jaaz. 
+In the perfect world, you'd just write the core business logic like a lambda function and hit publish and a multi million dollar team *someone* (\*cough\* multi million dollar team**S** \*cough\*) automagically takes care of CI/CD, Deployment, Hosting, Scaling, and all that jaaz. 
 
 ### So what is GETorade?
 While I don't claim to fix all your devops and developer productivity voes, GETorade is a cute little framework I built for myself, optimized to be run on *Replit*.
