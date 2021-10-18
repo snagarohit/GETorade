@@ -1,46 +1,35 @@
 from flask import Flask, send_from_directory
 import importlib
 
-app = Flask(__name__,template_folder='template/static')
+app = Flask(__name__,template_folder='src/common/template/static')
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
-def master_route(path):
-  module = None
-
+def router(path):
+  # route requests to "foo/bar/si" to
+  # `si.py` in `bar` directory, which is in `foo` directory,
+  # which is inside `root` directory of `roots`
+  
   if path == '':
-    path = 'index'
+    return router('index')
+
+  moduleObjectToRouteTo = None
+  modulePathToRouteTo = path
+
+  if '/' in modulePathToRouteTo:
+    modulePathToRouteTo = modulePathToRouteTo.replace('/', '.')
 
   try:
-    module = importlib.import_module('routes.root.'+path)
+    moduleObjectToRouteTo = importlib.import_module('routes.root.'+modulePathToRouteTo)
   except ModuleNotFoundError:
-    module = None
-
-  if module == None:
     #try if it's a static file
     return send_from_directory('static', path)
-  else:
-    return module.main()
+
+  return moduleObjectToRouteTo.main()
 
 @app.errorhandler(404)
 def fourOhFour(e):
-  return master_route('404')
-  
-
-
-# @app.route('/')
-# def index():
-#   return template.centeredHtml.render('<img src="https://i.pinimg.com/originals/3a/7e/43/3a7e434cc7cde1b176234cc12b3a5bc8.gif"/>')
-
-@app.route('/ping')
-def ping():
-  return {'ping':'pong'}
-  
-@app.route('/verify-ownership')
-def verify_ownership():
-
-  return 'verified'
-
+  return router('404')
 
 from waitress import serve
 serve(app, host='0.0.0.0', port=80)
