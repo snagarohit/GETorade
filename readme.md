@@ -70,7 +70,7 @@ So the final directory structure would look something like this:
                            |__ __init__.py(+)
                            |__ bar.py
 ```
-That's all folks! Restart the application and you now have built the new [https://getorade.repl.passbird.co/example/foo/bar?times=3](https://getorade.repl.passbird.co/example/foo/bar?times=3) API.
+That's all folks! Restart the application and you would now have built the new [https://getorade.repl.passbird.co/example/foo/bar?times=3](https://getorade.repl.passbird.co/example/foo/bar?times=3) API.
 
 ## Philosophy
 After working in Corporate (Facebook, Twitter, Microsoft) for better part of a decade, I grew accustomed to certain luxuries of developer experience. Now that I'm out, I realized it's kinda annoying to not have that multi million dollar frameworks you can build off of.
