@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Passbird</title>
+    <style>
+      .centeredContent {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -moz-transform: translateX(-50%) translateY(-50%);
+          -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="centeredContent">
+      {{content|safe}}
+    </div>
+  </body>
+</html>
