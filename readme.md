@@ -8,7 +8,7 @@ It does so by WYSIWYG (What You See Is What You Get) routing, and making **opini
 ![You'll thank me later](https://c.tenor.com/274hyAKNHckAAAAC/youll-thank-me-later-thankful.gif)
 
 
-Works best with *Replit* (or *Docker* if you really want to productionize this). It [works well in production](https://flask.palletsprojects.com/en/2.0.x/tutorial/deploy/#run-with-a-production-server) thanks to [`waitress`](https://docs.pylonsproject.org/projects/waitress/en/latest/).
+Works best with [*Replit*](https://replit.com/@tallmint/GETorade) (or *Docker* if you really want to productionize this). It [works well in production](https://flask.palletsprojects.com/en/2.0.x/tutorial/deploy/#run-with-a-production-server) thanks to [`waitress`](https://docs.pylonsproject.org/projects/waitress/en/latest/).
 
 ## License
 
