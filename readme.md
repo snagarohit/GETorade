@@ -18,7 +18,7 @@ Do with it what you will, but be nice. Okay?
 
 Conceived on the **Sixteenth** day of  **October** of the year **2021**.
 
-Last updated on **18 October, 2021**
+Specification last updated on **18 October, 2021**
 
 Debug help, Support, and Maintenance offered by [Naga Samineni](https://samineni.me), Passbird Research
 
