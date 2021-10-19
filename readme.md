@@ -8,7 +8,7 @@ It does so by WYSIWYG (What You See Is What You Get) routing, and making **opini
 ![You'll thank me later](https://c.tenor.com/274hyAKNHckAAAAC/youll-thank-me-later-thankful.gif)
 
 
-Works best with [*Replit*](https://replit.com/@tallmint/GETorade) (or *Docker* if you really want to productionize this). It [works well in production](https://flask.palletsprojects.com/en/2.0.x/tutorial/deploy/#run-with-a-production-server) thanks to [`waitress`](https://docs.pylonsproject.org/projects/waitress/en/latest/).
+Works best with [*Replit*](https://replit.com/@tallmint/GETorade) (or *Docker* if you really want to productionize this). It [works well in production](https://flask.palletsprojects.com/en/2.0.x/tutorial/deploy/#run-with-a-production-server) thanks to [`waitress`](https://docs.pylonsproject.org/projects/waitress/en/latest/). .
 
 ## License
 
@@ -184,3 +184,26 @@ This framework supports:
 - `404` and index file (`/`) handling.
 - Tempating support
   - See [`/routes/index.py`](https://github.com/snagarohit/GETorade/blob/master/routes/root/index.py#L4)
+
+
+  ## Deployment Guide
+  ### Local
+```sh
+
+% poetry update
+
+Updating dependencies
+Resolving dependencies... (0.3s)
+
+Package operations: 7 installs, 0 updates, 0 removals
+
+  • Installing markupsafe (2.0.1)
+  • Installing click (8.0.3)
+  • Installing itsdangerous (2.0.1)
+  • Installing jinja2 (3.0.2)
+  • Installing werkzeug (2.0.2)
+  • Installing flask (2.0.2)
+  • Installing waitress (2.0.0)
+
+% poetry run python3 main.py
+```
