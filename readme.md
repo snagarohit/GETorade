@@ -8,7 +8,7 @@ It does so by WYSIWYG (What You See Is What You Get) routing, and making **opini
 ![You'll thank me later](https://c.tenor.com/274hyAKNHckAAAAC/youll-thank-me-later-thankful.gif)
 
 
-Works best with [*Replit*](https://replit.com/@tallmint/GETorade) (or *Docker* if you really want to productionize this). It [works well in production](https://flask.palletsprojects.com/en/2.0.x/tutorial/deploy/#run-with-a-production-server) thanks to [`waitress`](https://docs.pylonsproject.org/projects/waitress/en/latest/). .
+Works best with [*Replit*](https://replit.com/@tallmint/GETorade) (or *Docker* if you really want to productionize this). It [works well in production](https://flask.palletsprojects.com/en/2.0.x/tutorial/deploy/#run-with-a-production-server) thanks to [`waitress`](https://docs.pylonsproject.org/projects/waitress/en/latest/).
 
 ## License
 
@@ -188,22 +188,19 @@ This framework supports:
 
 ## Deployment Guide
   ### Local
+
+Install [poetry](https://python-poetry.org/)
 ```sh
+$ pip3 install poetry
+```
 
-% poetry update
+Now `cd` into the project directory and run
+```sh
+$ poetry update
+```
 
-Updating dependencies
-Resolving dependencies... (0.3s)
+Once it finishes installing/updating required packages, finally run 
 
-Package operations: 7 installs, 0 updates, 0 removals
-
-  • Installing markupsafe (2.0.1)
-  • Installing click (8.0.3)
-  • Installing itsdangerous (2.0.1)
-  • Installing jinja2 (3.0.2)
-  • Installing werkzeug (2.0.2)
-  • Installing flask (2.0.2)
-  • Installing waitress (2.0.0)
-
-% poetry run python3 main.py
+```sh
+$ poetry run python3 main.py
 ```
