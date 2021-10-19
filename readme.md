@@ -186,7 +186,7 @@ This framework supports:
   - See [`/routes/index.py`](https://github.com/snagarohit/GETorade/blob/master/routes/root/index.py#L4)
 
 
-  ## Deployment Guide
+## Deployment Guide
   ### Local
 ```sh
 
