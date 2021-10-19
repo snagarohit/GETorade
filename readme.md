@@ -103,12 +103,13 @@ It's not trying to hide the fact that it's built on top of Flask. Attempts to in
 
 ## Quick examples
 ### Return JSON response
-Checkout `/routes/example/returnJson.py` which handles  [https://getorade.repl.passbird.co/routes/example/returnJson](https://getorade.repl.passbird.co/example/returnJson) API. It returns
+Checkout [`/routes/example/returnJson.py`](https://github.com/snagarohit/GETorade/blob/master/routes/root/example/returnJson.py) which handles  [https://getorade.repl.passbird.co/routes/example/returnJson](https://getorade.repl.passbird.co/example/returnJson) API. It returns
+
 ```JSON
 {"1":true,"as":{"we":1},"hello":"world"}
 ```
 ### Read GET parameters from URL and Render in a Template
-Checkout `/routes/example/getParams.py` which is callable from [https://getorade.repl.passbird.co/example/getParams?name=Ray+Mysterio&age=619](https://getorade.repl.passbird.co/example/getParams?name=Ray+Mysterio&age=619). It returns
+Checkout [`/routes/example/getParams.py`](https://github.com/snagarohit/GETorade/blob/master/routes/root/example/getParams.py) which is callable from [https://getorade.repl.passbird.co/example/getParams?name=Ray+Mysterio&age=619](https://getorade.repl.passbird.co/example/getParams?name=Ray+Mysterio&age=619). It returns
 
 ```HTML
 
@@ -139,7 +140,7 @@ Checkout `/routes/example/getParams.py` which is callable from [https://getorade
 ```
 
 ### Using `src` directory for outsourcing **complicated** logic
-Checkout `/routes/example/complicated.py` which is callable from [https://getorade.repl.passbird.co/example/complicated?name=Dave&age=23](https://getorade.repl.passbird.co/example/complicated?name=Dave&age=23). It's supposed to display a birthday greetings to "Dave", with "23" candles. It outsources bulk of logic into `/src/example/complicated/greetingProcessor.py`. This API returns
+Checkout [`/routes/example/complicated.py`](https://github.com/snagarohit/GETorade/blob/master/routes/root/example/complicated.py) which is callable from [https://getorade.repl.passbird.co/example/complicated?name=Dave&age=23](https://getorade.repl.passbird.co/example/complicated?name=Dave&age=23). It's supposed to display a birthday greetings to "Dave", with "23" candles. It outsources bulk of logic into [`/src/example/complicated/greetingProcessor.py`](https://github.com/snagarohit/GETorade/blob/master/src/example/complicated/greetingProcessor.py). This API returns
 
 ```HTML
 
@@ -170,16 +171,16 @@ Checkout `/routes/example/complicated.py` which is callable from [https://getora
 
 ```
 
-**Note 1**: Notice that `/src/example/complicated/greetingProcessor.py` imports the supporting `/src/example/complicated/_emojiArt.py`by fully qualified module name (fancy term for saying "full path to module"), like `src.example.complicated._emojiArt`. Checkout `greetingProcessor.py` for the "Why?"
+**Note 1**: Notice that [`/src/example/complicated/greetingProcessor.py`](https://github.com/snagarohit/GETorade/blob/master/src/example/complicated/greetingProcessor.py) imports the supporting [`/src/example/complicated/_emojiArt.py`](https://github.com/snagarohit/GETorade/blob/master/src/example/complicated/__emojiArt.py) by fully qualified module name (fancy term for saying "full path to module"), like [`src.example.complicated._emojiArt`](https://github.com/snagarohit/GETorade/blob/master/src/example/complicated/greetingProcessor.py#L6). Checkout [`greetingProcessor.py`](https://github.com/snagarohit/GETorade/blob/master/src/example/complicated/greetingProcessor.py#L3-L5) for the "Why?"
 
-**Note 2**: See how supporting code like `__emojiArt.py` are named starting with a double underscore `__`? It's an opinionated design decision to visually distinguish "externally imported" code like `greetingProcessor.py` from local supporting code like `__emojiArt.py`
+**Note 2**: See how supporting code like [`__emojiArt.py`](https://github.com/snagarohit/GETorade/tree/master/src/example/complicated) are named starting with a double underscore `__`? It's an opinionated design decision to visually distinguish "externally imported" code like `greetingProcessor.py` from local supporting code like `__emojiArt.py`
 
 
 
 ## Bonus
 This framework supports:
 - Automatic static file hosting
-  - Drop your file/directory under `/static` directory. See `/static/favicon.ico` which can be reached by [https://getorade.repl.passbird.co/favicon.ico](https://getorade.repl.passbird.co/favicon.ico)
+  - Drop your file/directory under `/static` directory. See [`/static/favicon.ico`](https://github.com/snagarohit/GETorade/blob/master/static/favicon.ico) which can be reached by [https://getorade.repl.passbird.co/favicon.ico](https://getorade.repl.passbird.co/favicon.ico)
 - `404` and index file (`/`) handling.
 - Tempating support
-  - See `/routes/index.py`
+  - See [`/routes/index.py`](https://github.com/snagarohit/GETorade/blob/master/routes/root/index.py#L4)
