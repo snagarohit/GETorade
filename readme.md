@@ -1,4 +1,4 @@
-# **GETorade ⚡** *by Passbird Research*
+# **`GETorade ⚡`** *by Passbird Research*
 
 
 A Python micro 🤏 framework built on top of [`flask`](https://flask.palletsprojects.com/)🍾 to get you to *__ship__ near-production quality __APIs ASAP__* for your prototypes. Built by a backend engineer for backend and non-backend engineers alike.
