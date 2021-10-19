@@ -1,14 +1,14 @@
-# GETorade ⚡
+# **GETorade ⚡** *by Passbird Research*
 
 
-A Python micro 🤏 framework built on top of `flask`🍾 to get you to *__ship__ near-production quality __APIs ASAP__* for your prototypes. Built by a backend engineer for backend and non-backend engineers alike.
+A Python micro 🤏 framework built on top of [`flask`](https://flask.palletsprojects.com/)🍾 to get you to *__ship__ near-production quality __APIs ASAP__* for your prototypes. Built by a backend engineer for backend and non-backend engineers alike.
 
 It does so by WYSIWYG (What You See Is What You Get) routing, and making **opinionated** design, and code organization decisions for you.
 
 ![You'll thank me later](https://c.tenor.com/274hyAKNHckAAAAC/youll-thank-me-later-thankful.gif)
 
 
-Works best with *Replit* (or *Docker* if you really want to productionize this). It [works well in production](https://flask.palletsprojects.com/en/2.0.x/tutorial/deploy/#run-with-a-production-server) thanks to `waitress`.
+Works best with *Replit* (or *Docker* if you really want to productionize this). It [works well in production](https://flask.palletsprojects.com/en/2.0.x/tutorial/deploy/#run-with-a-production-server) thanks to [`waitress`](https://docs.pylonsproject.org/projects/waitress/en/latest/).
 
 ## License
 
