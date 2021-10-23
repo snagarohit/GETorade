@@ -18,7 +18,7 @@ Do with it what you will, but be nice. Okay?
 
 Conceived on the **Sixteenth** day of  **October** of the year **2021**.
 
-Specification last updated on **18 October, 2021**
+Specification last updated on **23 October, 2021**
 
 Debug help, Support, and Maintenance offered by [Naga Samineni](https://samineni.me), Passbird Research
 
@@ -102,13 +102,13 @@ It's not trying to hide the fact that it's built on top of Flask. Attempts to in
 
 
 ## More examples
-### (1/4) Return JSON response
+### Example 1: Return JSON response
 Checkout [`/routes/example/returnJson.py`](https://github.com/snagarohit/GETorade/blob/master/routes/root/example/returnJson.py) which handles  [https://getorade.repl.passbird.co/routes/example/returnJson](https://getorade.repl.passbird.co/example/returnJson) API. It returns
 
 ```JSON
 {"1":true,"as":{"we":1},"hello":"world"}
 ```
-### (2/4) Read GET parameters from URL and Render in a Template
+### Example 2: Read GET parameters from URL and Render in a Template
 Checkout [`/routes/example/getParams.py`](https://github.com/snagarohit/GETorade/blob/master/routes/root/example/getParams.py) which is callable from [https://getorade.repl.passbird.co/example/getParams?name=Ray+Mysterio&age=619](https://getorade.repl.passbird.co/example/getParams?name=Ray+Mysterio&age=619). It returns
 
 ```HTML
@@ -139,7 +139,7 @@ Checkout [`/routes/example/getParams.py`](https://github.com/snagarohit/GETorade
 </html>
 ```
 
-### (3/4) Using `src` directory for outsourcing **complicated** logic
+### Example 3: Using `src` directory for outsourcing **complicated** logic
 Checkout [`/routes/example/complicated.py`](https://github.com/snagarohit/GETorade/blob/master/routes/root/example/complicated.py) which is callable from [https://getorade.repl.passbird.co/example/complicated?name=Dave&age=23](https://getorade.repl.passbird.co/example/complicated?name=Dave&age=23). It's supposed to display a birthday greetings to "Dave", with "23" candles. It outsources bulk of logic into [`/src/example/complicated/greetingProcessor.py`](https://github.com/snagarohit/GETorade/blob/master/src/example/complicated/greetingProcessor.py). This API returns
 
 ```HTML
@@ -177,13 +177,93 @@ Checkout [`/routes/example/complicated.py`](https://github.com/snagarohit/GETora
 
 
 
-### (4/4) Simple Read/Write Database (powered by AWS)
-`TODO` Complete this example documentation
+### Example 4: Simple Read/Write Database (powered by AWS)
+**Step 1: Setup AWS**
 
-`TODO` Publish out /src/common/db/aws.py into a wrapper of pynamodb. Perhaps "simplepynamodb"?
+Create a DynamoDB instance on AWS. At the time of this document, AWS offers "Always Free" quota of 25GB disk, 25 RCUs & 25 WCUs (aka read and write requests per second) are free.
 
-https://getorade.repl.passbird.co/example/db/get?data=Hello%20There!
-https://getorade.repl.passbird.co/example/db/put?data=Hello%20There!
+Setup environment variables [with AWS Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html). Programmatically they'd look something like this:
+
+```python
+os.environ['AWS_ACCESS_KEY_ID'] = 'AASI3485HLWGHQGH'
+os.environ['AWS_SECRET_ACCESS_KEY'] = '+alsigYfoghwoghoiLHDofweg823'
+os.environ['AWS_DEFAULT_REGION'] = 'us-west-1'
+```
+
+Alternatively, set these environment variables [in the .env file](https://dev.to/jakewitcher/using-env-files-for-environment-variables-in-python-applications-55a1). Flask should auto-load it.
+
+Now create a DynamoDB instance. Create a new table with name "getorade" (or something that you like) and set the corresponding environment settings like so (on via .env file)
+
+```python
+os.environ['PB_DB_TABLE_NAME'] = 'getorade'
+os.environ['PB_DB_TABLE_REGION'] = 'us-west-1' #depends on where you create the db in AWS
+```
+
+If you're using Replit, you can set environment variables from "Secrets" section.
+
+
+**Step 1.1: Configuring the Table**
+
+Create Table
+![Create Table](https://i.ibb.co/pxQF7jg/Screen-Shot-2021-10-23-at-7-40-45-AM.png)
+
+Setup Partition Key and Sort Key exactly like this ('namespace', 'key')
+![Setup Partition Key and Sort Key](https://i.ibb.co/6wB7tJ7/Screen-Shot-2021-10-23-at-7-41-44-AM.png)
+
+Configure provisioning. We can provision as high as 25 units.
+![Configure provisioning](https://i.ibb.co/HzSNL5D/Screen-Shot-2021-10-23-at-7-41-51-AM.png)
+
+**Step 2: Write to Database**
+
+See example at `/example/db/get.py`, hosted at [https://getorade.repl.passbird.co/example/db/put?data=Hello%20There!](https://getorade.repl.passbird.co/example/db/put?data=Hello%20There!)
+
+```python
+import src.common.db.aws as db
+
+data = request.args.get('data')
+database['data'] = data
+```
+Here, 'DBExample' is the project scope (generally API name / logical product name). 'Content' is a prefix for keys inside the project scope.
+
+The table now looks something like this on the backend
+![](https://i.ibb.co/7n2n8L0/Screen-Shot-2021-10-23-at-10-16-01-AM.png)
+
+The 'database' key can be as complicated of a path as possible. Example:
+```python
+database['foo/bar/apple'] = {'key': 1}
+```
+
+Basically, the value can be any JSON data-structure.
+
+The `getorade` table now looks something like this for the addition above-
+```text
+namespace: DBExample
+key: 'Content/data/foo/bar/apple'
+value: {'key': 1}
+```
+
+
+
+**Step 3: Read Database**
+
+See example at `/example/db/get.py`, hosted at [https://getorade.repl.passbird.co/example/db/get?data=Hello%20There!](https://getorade.repl.passbird.co/example/db/get?data=Hello%20There!)
+
+```python
+import src.common.db.aws as db
+
+app = db.App("DBExample", "Content")
+database = db.SimpleDatabase(app)
+
+
+```
+
+
+
+
+**`TODO`** Publish out /src/common/db/aws.py into a wrapper of pynamodb. Perhaps "simplepynamodb"?
+
+
+
 
 
 ## Bonus
