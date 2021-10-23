@@ -177,6 +177,15 @@ Checkout [`/routes/example/complicated.py`](https://github.com/snagarohit/GETora
 
 
 
+### Simple Read/Write Database (powered by AWS)
+`TODO` Complete this example documentation
+
+`TODO` Publish out /src/common/db/aws.py into a wrapper of pynamodb. Perhaps "simplepynamodb"?
+
+https://getorade.repl.passbird.co/example/db/get?data=Hello%20There!
+https://getorade.repl.passbird.co/example/db/put?data=Hello%20There!
+
+
 ## Bonus
 This framework supports:
 - Automatic static file hosting
