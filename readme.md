@@ -101,14 +101,14 @@ It's not Yet Another REST framework for Python. There're plenty out there alread
 It's not trying to hide the fact that it's built on top of Flask. Attempts to introduce abstractions to hide it break the KISS principle. More specifically, `request` object in GETorade is a [standard Flask Request object](https://flask.palletsprojects.com/en/2.0.x/api/#flask.Request), and `Response` (return value) is the [standard Flask Response object](https://flask.palletsprojects.com/en/2.0.x/api/#flask.Response) and it shall **STAY THAT WAY**. 
 
 
-## Quick examples
-### Return JSON response
+## More examples
+### (1/4) Return JSON response
 Checkout [`/routes/example/returnJson.py`](https://github.com/snagarohit/GETorade/blob/master/routes/root/example/returnJson.py) which handles  [https://getorade.repl.passbird.co/routes/example/returnJson](https://getorade.repl.passbird.co/example/returnJson) API. It returns
 
 ```JSON
 {"1":true,"as":{"we":1},"hello":"world"}
 ```
-### Read GET parameters from URL and Render in a Template
+### (2/4) Read GET parameters from URL and Render in a Template
 Checkout [`/routes/example/getParams.py`](https://github.com/snagarohit/GETorade/blob/master/routes/root/example/getParams.py) which is callable from [https://getorade.repl.passbird.co/example/getParams?name=Ray+Mysterio&age=619](https://getorade.repl.passbird.co/example/getParams?name=Ray+Mysterio&age=619). It returns
 
 ```HTML
@@ -139,7 +139,7 @@ Checkout [`/routes/example/getParams.py`](https://github.com/snagarohit/GETorade
 </html>
 ```
 
-### Using `src` directory for outsourcing **complicated** logic
+### (3/4) Using `src` directory for outsourcing **complicated** logic
 Checkout [`/routes/example/complicated.py`](https://github.com/snagarohit/GETorade/blob/master/routes/root/example/complicated.py) which is callable from [https://getorade.repl.passbird.co/example/complicated?name=Dave&age=23](https://getorade.repl.passbird.co/example/complicated?name=Dave&age=23). It's supposed to display a birthday greetings to "Dave", with "23" candles. It outsources bulk of logic into [`/src/example/complicated/greetingProcessor.py`](https://github.com/snagarohit/GETorade/blob/master/src/example/complicated/greetingProcessor.py). This API returns
 
 ```HTML
@@ -177,7 +177,7 @@ Checkout [`/routes/example/complicated.py`](https://github.com/snagarohit/GETora
 
 
 
-### Simple Read/Write Database (powered by AWS)
+### (4/4) Simple Read/Write Database (powered by AWS)
 `TODO` Complete this example documentation
 
 `TODO` Publish out /src/common/db/aws.py into a wrapper of pynamodb. Perhaps "simplepynamodb"?
