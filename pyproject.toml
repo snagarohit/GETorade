@@ -2,12 +2,13 @@
 name = "repl_python3_beta_ThoseUnhappyExponent"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["Naga Samineni <naga@passbird.co>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
 Flask = "^2.0.2"
 waitress = "^2.0.0"
+pynamodb = "^5.1.0"
 
 [tool.poetry.dev-dependencies]
 
