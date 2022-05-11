@@ -11,7 +11,7 @@ def main():
     txnHash = "0xb2620b28c018a6746a34860b6fe5344510ee533abcf0e6552e6ed07fc4e93494"
   
   return {
-        "status": "COMPLETED",
-        "transaction_hash": txnHash,
-        "transaction_chain_scan_url": "https://mumbai.polygonscan.com/tx/" + txnHash
-    }
+  "status": "COMPLETED",
+  "transactionUrl": "https://mumbai.polygonscan.com/tx/" + txnHash,
+  "transactionHash": txnHash
+}
