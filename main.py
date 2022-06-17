@@ -3,8 +3,8 @@ import importlib
 
 app = Flask(__name__,template_folder='src/common/template/static')
 
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
+@app.route('/', defaults={'path': ''}, methods=['POST', 'GET'])
+@app.route('/<path:path>', methods=['POST', 'GET'])
 def router(path):
   # route requests to "foo/bar/si" to
   # `si.py` in `bar` directory, which is in `foo` directory,
